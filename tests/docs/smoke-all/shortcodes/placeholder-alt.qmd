@@ -1,0 +1,11 @@
+---
+title: "Placeholder shortcode alt text"
+format: html
+_quarto:
+  tests:
+    html:
+      ensureHtmlElements:
+        - ['img[alt="Placeholder image, 400 by 200"]']
+---
+
+{{< placeholder 400 200 >}}

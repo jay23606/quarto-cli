@@ -57,7 +57,10 @@ return {
     if context == "text" then
       return result
     else
-      return pandoc.Image({}, result)
+      -- The caption inlines become the image's alt text. Provide a default so the
+      -- <img> always carries an alt attribute (an absent alt fails WCAG 1.1.1).
+      local alt = pandoc.Inlines({pandoc.Str("Placeholder image, " .. tostring(width) .. " by " .. tostring(height))})
+      return pandoc.Image(alt, result)
     end
   end
 }
